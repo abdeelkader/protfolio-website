@@ -10,6 +10,6 @@ A modern and responsive personal portfolio website built to showcase my skills, 
 * Contact section
 * Responsive design
 
-### Technologies
+### Technologies.
 
 HTML • CSS • JavaScript
