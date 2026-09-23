@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marquee banner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B080A;
+    --fg: #f2f2f2;
+    --speed: 30s; /* lower = faster */
+  }
+  body { margin: 0; background: var(--bg); }
+
+  /* ---- Copy from here into your site ---- */
+  .marquee {
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    padding: 1rem 0;
+    white-space: nowrap;
+  }
+  .marquee__track {
+    display: flex;
+    width: max-content;
+    animation: slide-right var(--speed) linear infinite;
+  }
+  .marquee:hover .marquee__track { animation-play-state: paused; }
+  .marquee__item {
+    font-family: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-right: 4rem; /* gap between repeats */
+  }
+  /* Moves left -> right. The track holds 2 identical groups, so
+     shifting by 50% loops with no visible jump. */
+  @keyframes slide-right {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; }
+  }
+  /* ---- To here ---- */
+</style>
+</head>
+<body>
+
+<div class="marquee" role="marquee" aria-label="Exploring the work of van1ikka, a front-end web and creative technologist based in Tanger">
+  <div class="marquee__track">
+    <!-- Group 1 -->
+    <span class="marquee__item">Exploring the work of van1ikka, a front-end web and creative technologist based in Tanger</span>
+    <span class="marquee__item">Exploring the work of van1ikka, a front-end web and creative technologist based in Tanger</span>
+    <span class="marquee__item">Exploring the work of van1ikka, a front-end web and creative technologist based in Tanger</span>
+    <!-- Group 2 (exact copy of group 1) -->
+    <span class="marquee__item" aria-hidden="true">Exploring the work of van1ikka, a front-end web and creative technologist based in Tanger</span>
+    <span class="marquee__item" aria-hidden="true">Exploring the work of van1ikka, a front-end web and creative technologist based in Tanger</span>
+    <span class="marquee__item" aria-hidden="true">Exploring the work of van1ikka, a front-end web and creative technologist based in Tanger</span>
+  </div>
+</div>
+
+</body>
+</html>
